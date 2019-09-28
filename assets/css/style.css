@@ -22,3 +22,12 @@ body {
     background-color: #28a745;
     color: #ffffff;
 }
+
+.gif-holder {
+    margin: 20px 0px;
+}
+
+.gif-holder {
+    margin: 0px 30px;
+    display: inline-block;
+}
