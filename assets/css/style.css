@@ -1,0 +1,24 @@
+body {
+    background-image: url('../../ep_naturalblack.png');
+    color: #f7f7f7;
+}
+
+.custom-bg {
+    background-color: rgb(255, 255, 255, 0.1);
+    height: auto;
+}
+
+.button-style button {
+    margin: 10px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 0.25rem;
+}
+
+.button-style button:hover {
+    background-color: #28a745;
+    color: #ffffff;
+}
