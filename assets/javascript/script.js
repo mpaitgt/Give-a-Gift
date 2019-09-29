@@ -22,7 +22,7 @@ window.onload = function() {    // event listeners
         }   
     });
 
-    $(document).on('click', '.gif-image', addFavorite);    // add to favorites button
+    $(document).on('click', '.gif-image', addFavorite);    // gif button which adds to favorites list
 
     $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
 
@@ -30,7 +30,8 @@ window.onload = function() {    // event listeners
 
     $('#btn-clear').on('click', clearBTNs);     // clear buttons button
 
-    $('#btn-fave').on('click', function() {
+    $('#btn-fave').on('click', function() {     // favorites button
+
         clearGIFs();
         faveBox.empty();
         faveBox.css('display', 'block');
@@ -74,6 +75,12 @@ function displayGIF() {         // display gif function, includes ajax call
     }).then(function(response) {
         
         console.log(response);
+
+        // i dont know
+        var randomIt = Math.floor(Math.random() * defineLimit);
+        console.log(randomIt);
+        // trying to randomize the array in the response
+
         for (var i = 0; i < defineLimit(); i++) {       // displays the gif on the page
 
             var newDiv = $('<div>');
@@ -84,7 +91,7 @@ function displayGIF() {         // display gif function, includes ajax call
             newGif.attr('src', gifImage);
 
             var newP = $('<p>');
-            newP.text(response.data[i].rating);
+            newP.text('Rated: ' + response.data[i].rating);
 
             newDiv.append(newGif, newP);
             gifBox.prepend(newDiv);
@@ -113,6 +120,8 @@ function addFavorite() {        // function adds a selected gif to the favorites
     } else {
         favorites.push(newFave);
     }
+
+    localStorage.setItem('fave-gif', this);
 }
 
 function clearGIFs() {      // clears the gifbox, called on the clear gifs button
@@ -124,3 +133,11 @@ function clearBTNs() {
     updateButtons();
     $('#btn-box').animate({'display': 'none'});    
 }
+
+// in order to add persistence, i need the following variables set
+// 1. Gif limit input
+// 2. Topics array in its latest form
+// 3. gif Array
+// 4. Favorites array
+
+

@@ -34,6 +34,12 @@ body {
     font-family: 'Rock Salt', cursive;
 }
 
+div span em {
+    margin: 0px 10px;
+    color: #7bb3fd;
+
+}
+
 .custom-bg {
     background-color: rgb(255, 255, 255, 0.1);
     height: 100%;
@@ -43,6 +49,7 @@ body {
     padding: 10px;
     text-align: center;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -54,7 +61,7 @@ input[type=number]::-webkit-inner-spin-button {
   }
 
 .button-style button {
-    margin: 10px;
+    margin: 2px;
     font-size: 20px;
     padding: 10px 20px;
     text-transform: uppercase;
@@ -83,16 +90,20 @@ input[type=number]::-webkit-inner-spin-button {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     background-color: rgb(40, 167, 69, 0.75);
     padding: 10px;
-    height: 40px;
+    height: 30px;
     margin: 0 auto;
     box-shadow: 3px 0px 78px 0px rgba(0,0,0,0.75);
+}
+
+#gif-btn {
+    width: 100%;
 }
 
 #instruct {
@@ -136,8 +147,8 @@ button:focus:active, input:focus, input:active {
 }
 
 .favorite-button {
-    /* display: none; */
-    background-color: #e7de5f;
     font-size: 40px;
-    padding: 30px 0px;
+    padding: 5px 0px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 }
