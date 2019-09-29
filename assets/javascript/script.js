@@ -22,9 +22,9 @@ window.onload = function() {    // event listeners
 
     $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
 
-    $(document).on('click', '#clear-btn', clearGIFs);
+    $('#clear-btn').on('click', clearGIFs);
 
-    $(document).on('click', '#btn-clear', clearBTNs);
+    $('#btn-clear').on('click', clearBTNs);
 }
 
 
@@ -38,6 +38,8 @@ function updateButtons() {      // displays the button on the page
         newBtn.text(topics[i]);
         btnBox.prepend(newBtn);
     }
+
+    
 }
 
 function displayGIF() {         // display gif function, includes ajax call
@@ -88,4 +90,5 @@ function clearGIFs() {      // clears the gifbox, called on the clear gifs butto
 function clearBTNs() {
     topics = [];
     updateButtons();
+    $('#btn-box').animate({'display': 'none'});    
 }
