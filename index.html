@@ -7,13 +7,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo|Playfair+Display|Vollkorn&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rock+Salt|Nanum+Myeongjo|Playfair+Display|Vollkorn&display=swap" rel="stylesheet">
 <title>Giphy</title>
 </head>
 <body>
 <div class="row">
     <div class="custom-bg col-lg-4 col-md-12 col-sm-12">
-        <h1 class="text-center mt-3 mb-5" id="head">give a gif</h1>
+        <div class="col-12">
+            <h1 class="text-center" id="head">give a gif<span>t</span></h1>
+        </div>
+
+        <div class="col-12 input-group">
+            <span>I want this many GIFs:</span>    
+            <input id="limit-input" type="number" class="form-control" placeholder="" aria-label="Want more?" aria-describedby="basic-addon2">
+        </div>
+
         <div class="col-12 input-group m-3 mx-auto">
             <input id="search-input" type="text" class="form-control" placeholder="Add a button and click!" aria-label="Add a button and click!" aria-describedby="basic-addon2">
             <div class="input-group-append">
@@ -22,17 +30,19 @@
         </div>
         <div class="row mt-5">
             <div id="btn-box" class="button-style mx-auto"></div>
+            <button id="clear-btn" type="button" class="btn btn-danger offset-2 col-lg-3 col-md-2 col-sm-2 col-sm-2">Clear GIFs</button>
+            <button id="btn-clear" type="button" class="btn btn-danger offset-2 col-lg-3 col-md-2 col-sm-2 col-sm-2">Clear Buttons</button>
         </div>
-        <span>I want </span>
-        <div class="col-2 input-group m-2 mx-auto">
-                <input id="limit-input" type="number" class="form-control" placeholder="" aria-label="Want more?" aria-describedby="basic-addon2">
-        </div>
-        <span>GIFs</span>
+        
+        
+        
     </div>
     <div class="offset-4 col-lg-8 col-md-12 col-sm-12 my-5">
         <div id="gif-box" class="mx-auto text-center"></div>
     </div>
+    
 </div>
+
 
     
 

@@ -2,9 +2,8 @@ var btnBox = $('#btn-box');
 var gifBox = $('#gif-box');
 var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the good place', 'twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
 var search = $('#search-btn');
+var clear = $('#clear-btn');
 var limit = 10;
-
-
 
 window.onload = function() {    // event listeners
     updateButtons();
@@ -22,6 +21,10 @@ window.onload = function() {    // event listeners
     });
 
     $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
+
+    $(document).on('click', '#clear-btn', clearGIFs);
+
+    $(document).on('click', '#btn-clear', clearBTNs);
 }
 
 
@@ -65,7 +68,7 @@ function displayGIF() {         // display gif function, includes ajax call
     });
 }
 
-function defineLimit() {
+function defineLimit() {        // defines the limit, defaults at 10
     var limitCount = $('#limit-input').val();
 
     if (limitCount === '') {
@@ -78,4 +81,11 @@ function defineLimit() {
     }
 }
 
-console.log(defineLimit());
+function clearGIFs() {      // clears the gifbox, called on the clear gifs button
+    gifBox.empty();
+}
+
+function clearBTNs() {
+    topics = [];
+    updateButtons();
+}
