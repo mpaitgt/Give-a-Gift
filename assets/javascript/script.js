@@ -4,6 +4,7 @@ var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the goo
 var search = $('#search-btn');
 var clear = $('#clear-btn');
 var limit = 10;
+var favorites = [];
 
 window.onload = function() {    // event listeners
     updateButtons();
@@ -20,11 +21,26 @@ window.onload = function() {    // event listeners
         }   
     });
 
+    $(document).on('click', '.gif-image', addFavorite);    // add to favorites button
+
     $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
 
-    $('#clear-btn').on('click', clearGIFs);
+    $('#clear-btn').on('click', clearGIFs);     // clear gifs button
 
-    $('#btn-clear').on('click', clearBTNs);
+    $('#btn-clear').on('click', clearBTNs);     // clear buttons button
+
+    $('#btn-fave').on('click', function() {
+        clearGIFs();
+
+        for (var i = 0; i < favorites.length; i++) {
+            var faveDiv = $('<div>');
+            var faveImg = $('<img>');
+            faveImg.attr('src', favorites[i]);
+            faveImg.addClass('gif-holder');
+            faveDiv.append(faveImg);
+            gifBox.prepend(faveDiv);
+        }
+    });
 }
 
 
@@ -38,11 +54,10 @@ function updateButtons() {      // displays the button on the page
         newBtn.text(topics[i]);
         btnBox.prepend(newBtn);
     }
-
-    
 }
 
 function displayGIF() {         // display gif function, includes ajax call
+    defineLimit();
     var btnTopic = $(this).attr('data-name');
     var APIkey = 'MVCunlgGr8xkVSFtMCzMpFYtpSwG5C17';
     var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + APIkey + '&q=' + btnTopic +'&limit=' + limit;
@@ -59,6 +74,7 @@ function displayGIF() {         // display gif function, includes ajax call
             newDiv.addClass('gif-holder');
             var gifImage = response.data[i].images.fixed_height.url;
             var newGif = $('<img>');
+            newGif.addClass('gif-image');
             newGif.attr('src', gifImage);
 
             var newP = $('<p>');
@@ -81,6 +97,12 @@ function defineLimit() {        // defines the limit, defaults at 10
         limit = limitCount;
         return limit;
     }
+}
+
+function addFavorite() {        // function adds a selected gif to the favorites section
+    var newFave = $(this).attr('src');
+    favorites.push(newFave);
+    console.log(favorites);
 }
 
 function clearGIFs() {      // clears the gifbox, called on the clear gifs button

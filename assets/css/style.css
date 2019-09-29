@@ -89,7 +89,6 @@ input[type=number]::-webkit-inner-spin-button {
     right: 0;
     background-color: rgb(40, 167, 69, 0.75);
     padding: 10px;
-    width: 40px;
     height: 40px;
     margin: 0 auto;
     box-shadow: 3px 0px 78px 0px rgba(0,0,0,0.75);
@@ -133,4 +132,9 @@ button:focus:active, input:focus, input:active {
     .custom-bg {
         position: static;
     }
+}
+
+.favorite-btn {
+    /* display: none; */
+    background-color: #db3434;
 }
