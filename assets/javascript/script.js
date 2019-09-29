@@ -5,19 +5,22 @@ var search = $('#search-btn');
 
 
 
-window.onload = function() {
+window.onload = function() {    // event listeners
     updateButtons();
 
     search.on('click', function() {     // search button
         var searchItem = $('#search-input').val();
 
-        if (!topics.includes(searchItem)) {
+        if (searchItem === '') {
+            return;
+        } else if (!topics.includes(searchItem)) {
             topics.push(searchItem);
             updateButtons();
+            $('#search-input').val('');
         }   
     });
 
-    $(document).on('click', '.gif-btn', displayGIF);      // gif-created buttons
+    $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
 }
 
 
@@ -33,7 +36,7 @@ function updateButtons() {      // displays the button on the page
     }
 }
 
-function displayGIF() {
+function displayGIF() {         // display gif function, includes ajax call
     var btnTopic = $(this).attr('data-name');
     var APIkey = 'MVCunlgGr8xkVSFtMCzMpFYtpSwG5C17';
     var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + APIkey + '&q=' + btnTopic +'&limit=20';
