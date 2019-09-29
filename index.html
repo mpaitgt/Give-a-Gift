@@ -7,26 +7,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo|Playfair+Display|Vollkorn&display=swap" rel="stylesheet">
 <title>Giphy</title>
 </head>
 <body>
-
-    <div class="container custom-bg p-3 mt-3">
-        <h1 class="text-center mt-3 mb-5">Giphy Project</h1>
-        <div class="col-6 input-group m-3 mx-auto">
+<div class="row">
+    <div class="custom-bg p-3 col-4 fixed-top flex-row">
+        <h1 class="text-center mt-3 mb-5" id="head">TV Search</h1>
+        <div class="col-12 input-group m-3 mx-auto">
             <input id="search-input" type="text" class="form-control" placeholder="Add a button!" aria-label="Add a button!" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button id="search-btn" class="btn btn-outline-success" type="button">Search</button>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <div id="btn-box" class="button-style mx-auto"></div>
         </div>
     </div>
-
-    <div class="row my-5">
-        <div id="gif-box" class="mx-auto"></div>
+    <div class="offset-4 col-8 my-5">
+        <div id="gif-box" class="mx-auto text-center"></div>
     </div>
+</div>
+
+    
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
