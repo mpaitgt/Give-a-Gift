@@ -1,5 +1,6 @@
 var btnBox = $('#btn-box');
 var gifBox = $('#gif-box');
+var faveBox = $('#fave-box');
 var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the good place', 'twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
 var search = $('#search-btn');
 var clear = $('#clear-btn');
@@ -31,6 +32,8 @@ window.onload = function() {    // event listeners
 
     $('#btn-fave').on('click', function() {
         clearGIFs();
+        faveBox.empty();
+        faveBox.css('display', 'block');
 
         for (var i = 0; i < favorites.length; i++) {
             var faveDiv = $('<div>');
@@ -38,7 +41,7 @@ window.onload = function() {    // event listeners
             faveImg.attr('src', favorites[i]);
             faveImg.addClass('gif-holder');
             faveDiv.append(faveImg);
-            gifBox.prepend(faveDiv);
+            faveBox.prepend(faveDiv);
         }
     });
 }
@@ -57,7 +60,10 @@ function updateButtons() {      // displays the button on the page
 }
 
 function displayGIF() {         // display gif function, includes ajax call
+    
     defineLimit();
+    faveBox.css('display', 'none');
+
     var btnTopic = $(this).attr('data-name');
     var APIkey = 'MVCunlgGr8xkVSFtMCzMpFYtpSwG5C17';
     var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + APIkey + '&q=' + btnTopic +'&limit=' + limit;
@@ -101,8 +107,12 @@ function defineLimit() {        // defines the limit, defaults at 10
 
 function addFavorite() {        // function adds a selected gif to the favorites section
     var newFave = $(this).attr('src');
-    favorites.push(newFave);
-    console.log(favorites);
+
+    if (favorites.includes(newFave)) {
+        return; 
+    } else {
+        favorites.push(newFave);
+    }
 }
 
 function clearGIFs() {      // clears the gifbox, called on the clear gifs button
