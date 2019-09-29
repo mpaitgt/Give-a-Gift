@@ -2,6 +2,7 @@ var btnBox = $('#btn-box');
 var gifBox = $('#gif-box');
 var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the good place', 'twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
 var search = $('#search-btn');
+var limit = 10;
 
 
 
@@ -29,25 +30,25 @@ function updateButtons() {      // displays the button on the page
 
     for (var i = 0; i < topics.length; i++) {
         var newBtn = $('<button>');
-        newBtn.addClass('gif-btn');
+        newBtn.addClass('gif-btn col-lg-8 col-md-4 col-sm-4 col-sm-4');
         newBtn.attr('data-name', topics[i]);
         newBtn.text(topics[i]);
-        btnBox.append(newBtn);
+        btnBox.prepend(newBtn);
     }
 }
 
 function displayGIF() {         // display gif function, includes ajax call
     var btnTopic = $(this).attr('data-name');
     var APIkey = 'MVCunlgGr8xkVSFtMCzMpFYtpSwG5C17';
-    var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + APIkey + '&q=' + btnTopic +'&limit=20';
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=' + APIkey + '&q=' + btnTopic +'&limit=' + limit;
 
     $.ajax({     // ajax call
         url: queryURL,
         method: 'GET'
     }).then(function(response) {
-
+        
         console.log(response);
-        for (var i = 0; i < 10; i++) {       // displays the gif on the page
+        for (var i = 0; i < defineLimit(); i++) {       // displays the gif on the page
 
             var newDiv = $('<div>');
             newDiv.addClass('gif-holder');
@@ -63,3 +64,18 @@ function displayGIF() {         // display gif function, includes ajax call
         }
     });
 }
+
+function defineLimit() {
+    var limitCount = $('#limit-input').val();
+
+    if (limitCount === '') {
+        limit = 10;
+        return limit;
+
+    } else if (limitCount >= 1) {
+        limit = limitCount;
+        return limit;
+    }
+}
+
+console.log(defineLimit());

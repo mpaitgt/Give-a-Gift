@@ -25,11 +25,17 @@ body {
 
 .custom-bg {
     background-color: rgb(255, 255, 255, 0.1);
+    height: 100%;
+    position: fixed;
     min-height: 100%;
-    height: auto;
-    left: 0;
-    padding: 0px 10px;
+    margin: 0px 0px;
+    padding: 10px;
     text-align: center;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .button-style button {
@@ -49,11 +55,35 @@ body {
 }
 
 .gif-holder {
-    margin: 40px 0px;
-    box-shadow: 0px 10px 48px -24px #28a745bf;
-}
-
-.gif-holder {
     margin: 10px 30px;
     display: inline-block;
+    box-shadow: 0px 10px 48px -24px #28a745bf;
+    position: relative;
+}
+
+.gif-holder p {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    background-color: rgb(40, 167, 69, 0.4);
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    box-shadow: 3px 0px 78px 0px rgba(0,0,0,0.75);
+}
+
+#limit-input {
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(40, 167, 69);
+    font-weight: bold;
+    font-size: 24px;
+    border: 1px solid #ffffff;
+    text-align: center;
+
 }

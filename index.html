@@ -12,10 +12,10 @@
 </head>
 <body>
 <div class="row">
-    <div class="custom-bg col-4 position-fixed">
+    <div class="custom-bg col-lg-4 col-md-12 col-sm-12">
         <h1 class="text-center mt-3 mb-5" id="head">give a gif</h1>
         <div class="col-12 input-group m-3 mx-auto">
-            <input id="search-input" type="text" class="form-control" placeholder="Add a button!" aria-label="Add a button!" aria-describedby="basic-addon2">
+            <input id="search-input" type="text" class="form-control" placeholder="Add a button and click!" aria-label="Add a button and click!" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button id="search-btn" class="btn btn-outline-success" type="button">Search</button>
             </div>
@@ -23,8 +23,13 @@
         <div class="row mt-5">
             <div id="btn-box" class="button-style mx-auto"></div>
         </div>
+        <span>I want </span>
+        <div class="col-2 input-group m-2 mx-auto">
+                <input id="limit-input" type="number" class="form-control" placeholder="" aria-label="Want more?" aria-describedby="basic-addon2">
+        </div>
+        <span>GIFs</span>
     </div>
-    <div class="offset-4 col-8 my-5">
+    <div class="offset-4 col-lg-8 col-md-12 col-sm-12 my-5">
         <div id="gif-box" class="mx-auto text-center"></div>
     </div>
 </div>
