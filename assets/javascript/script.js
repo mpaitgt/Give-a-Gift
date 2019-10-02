@@ -27,6 +27,8 @@ window.onload = function() {    // event listeners
 
     $(document).on('click', '.gif-image', addFavorite);    // gif button which adds to favorites list
 
+    faveClear.on('click', clearFavorites);
+
     $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
 
     $('#clear-btn').on('click', clearGIFs);     // clear gifs button
@@ -37,7 +39,7 @@ window.onload = function() {    // event listeners
         clearGIFs();
         faveBox.empty();
         faveBox.css('display', 'block');
-        faveClear.attr('display', 'block');
+        faveClear.css('display', 'block');
 
         for (var x = 1; x <= localStorage.getItem('faveLength'); x++) {
             var faveImg = $('<img>');
@@ -134,10 +136,15 @@ function clearBTNs() {
     $('#btn-box').animate({'display': 'none'});    
 }
 
-// in order to add persistence, i need the following variables set
-// 1. Gif limit input
-// 2. Topics array in its latest form
-// 3. gif Array
-// 4. Favorites array
+function clearFavorites() {
+    var sure = confirm('Are you sure you want to delete your favorites?');
+
+    if (!sure) {
+        return;
+    } else {
+        localStorage.clear();
+        faveBox.empty();
+    }
+}
 
 

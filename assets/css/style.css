@@ -171,10 +171,6 @@ button:focus:active, input:focus, input:active {
     letter-spacing: 0.1em;
 }
 
-#fave-clear {
-    display: none;
-}
-
 @media screen and (max-width: 991px) {
     .custom-bg {
         position: static;
