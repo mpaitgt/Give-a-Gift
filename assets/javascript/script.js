@@ -26,8 +26,11 @@ window.onload = function() {    // event listeners
     });
 
     $(document).on('click', '.gif-image', addFavorite);     // gif button which adds to favorites list
-    $(document).on('click', '.gif-image', function() {
-        $(this).addClass('selected-animation');
+    $(document).on('click', '.gif-holder', function() {
+            $(this).addClass('selected-animation');
+            var added = $('<p>').text('Added!');
+            added.addClass('added');
+            $(this).append(added);
     });
 
     faveClear.on('click', clearFavorites);
@@ -92,6 +95,7 @@ function displayGIF() {         // display gif function, includes ajax call
             newGif.attr('src', gifImage);
 
             var newP = $('<p>');
+            newP.addClass('rated');
             newP.text('Rated: ' + response.data[i].rating);
 
             newDiv.append(newGif, newP);
