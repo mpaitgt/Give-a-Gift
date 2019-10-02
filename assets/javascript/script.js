@@ -4,8 +4,9 @@ var faveBox = $('#fave-box');
 var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the good place', 'twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
 var search = $('#search-btn');
 var clear = $('#clear-btn');
+var faveClear = $('#fave-clear');
 var limit = 3;
-var localIndex = 0;
+var localIndex = localStorage.getItem('faveLength');
 var favorites = [];
 
 
@@ -32,16 +33,17 @@ window.onload = function() {    // event listeners
 
     $('#btn-clear').on('click', clearBTNs);     // clear buttons button
 
-    $('#btn-fave').mouseup(function() {     // favorites button
+    $('#btn-fave').on('click', function() {     // favorites button
         clearGIFs();
-        //faveBox.empty();
+        faveBox.empty();
         faveBox.css('display', 'block');
+        faveClear.attr('display', 'block');
 
         for (var x = 1; x <= localStorage.getItem('faveLength'); x++) {
             var faveImg = $('<img>');
             faveImg.addClass('gif-holder');
             faveImg.attr('src', localStorage.getItem('faveGif' + x));
-            faveBox.append(faveImg);
+            faveBox.prepend(faveImg);
         }
     });
 }
