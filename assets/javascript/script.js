@@ -1,7 +1,7 @@
 var btnBox = $('#btn-box');
 var gifBox = $('#gif-box');
 var faveBox = $('#fave-box');
-var topics = ['twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
+var topics = ['twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones', 'mad men', 'star wars'];
 var search = $('#search-btn');
 var clear = $('#clear-btn');
 var faveClear = $('#fave-clear');
@@ -23,17 +23,18 @@ window.onload = function() {    // event listeners
             updateButtons();
             $('#search-input').val('');
         }   
-    });
+    })
 
     $(document).on('click', '.gif-image', addFavorite);     // gif button which adds to favorites list
-    $(document).on('click', '.gif-holder', function() {
+
+    $(document).on('click', '.gif-holder', function() {     // gif button animation when selected
             $(this).addClass('selected-animation');
             var added = $('<p>').text('Added!');
             added.addClass('added');
             $(this).append(added);
     });
 
-    faveClear.on('click', clearFavorites);
+    faveClear.on('click', clearFavorites);      // clears the favorites array on page and locally
 
     $(document).on('click', '.gif-btn', displayGIF);      // gif generator buttons
 
@@ -137,10 +138,9 @@ function clearGIFs() {      // clears the gifbox, called on the clear gifs butto
     gifBox.empty();
 }
 
-function clearBTNs() {
+function clearBTNs() {      // clear the buttons from the page
     topics = [];
-    updateButtons();
-    $('#btn-box').animate({'display': 'none'});    
+    updateButtons();   
 }
 
 function clearFavorites() {

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-image: url('../../ep_naturalblack.png');
+    background-image: url('../images/ep_naturalblack.png');
     color: #f7f7f7;
     overflow-x: hidden;
     width: 95%;
@@ -151,7 +151,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 @keyframes clicked {
     0% {box-shadow: 0px 0px 29px 7px rgba(0,0,0,0.75); opacity: 1}
-    20% {box-shadow: 0px 0px 29px 7px rgba(21, 143, 10, 0.75); opacity: 0}
+    20% {box-shadow: 0px 0px 29px 7px rgba(182, 255, 176, 0.75); opacity: 0}
     100% {box-shadow: 0px 0px 29px 7px rgba(0,0,0,0.75); opacity: 1}
 }
 
@@ -181,7 +181,6 @@ button:focus:active, input:focus, input:active {
 
 .favorite-button {
     font-family: 'Vollkorn', serif;
-    background-color: rgba(21, 143, 10, 0.75);
     border: none;
     font-size: 32px;
     padding: 5px 0px;

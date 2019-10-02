@@ -6,7 +6,7 @@ GIVE A GIF(T) is a web application which uses the Giphy API to generate GIFs on 
 
 ## Link to the live game
 [Check out GIVE A GIF(T) here!](https://mpaitgt.github.io/Giphy-API/)
-![]()
+![](GIF-final1.gif)
 
 
 ## Technologies Used
