@@ -18,9 +18,9 @@
             <h1 class="text-center" id="head">give a gif<span>t</span></h1>
         </div>
 
-        <div class="col-lg-12 col-md-6 input-group">
-            <span id="instruct">I want <em>this</em> many GIFs</span>    
-            <input id="limit-input" type="number" class="form-control" placeholder="" aria-label="Want more?" aria-describedby="basic-addon2">
+        <div class="col-lg-12 col-md-6 input-group my-4">
+            <span id="instruct">I want <em>this</em> many GIF<span>t</span>s</span>    
+            <input id="limit-input" type="number" class="form-control" placeholder="3" aria-label="Want more?" aria-describedby="basic-addon2">
         </div>
 
         <div class="col-lg-12 offset-md-3 col-md-6 input-group m-3 mx-auto">
@@ -38,14 +38,16 @@
         </div>
         <div class="row mt-5">
             <div class="col-12">
-                <button id="btn-fave" type="button" class="btn btn-warning favorite-button col-lg-12 col-md-4 col-sm-4 col-sm-4">Favorites</button>
+                <button id="btn-fave" type="button" class="btn btn-success favorite-button col-lg-12 col-md-4 col-sm-4 col-sm-4">Favorites</button>
             </div>
         </div>
     </div>
 
     <div class="offset-lg-4 col-lg-8 col-md-12 col-sm-12 my-5">
         <div id="gif-box" class="mx-auto text-center"></div>
-        <div id="fave-box" class="mx-auto text-center"></div>
+        <div id="fave-box" class="mx-auto text-center">
+            <button id="fave-clear" type="button" class="btn btn-danger custom-btn offset-4 col-lg-8 col-md-8 col-sm-8">Clear Favorites</button>
+        </div>
     </div>
 </div>
 

@@ -4,8 +4,10 @@ var faveBox = $('#fave-box');
 var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the good place', 'twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
 var search = $('#search-btn');
 var clear = $('#clear-btn');
-var limit = 10;
+var limit = 3;
+var localIndex = 0;
 var favorites = [];
+
 
 window.onload = function() {    // event listeners
     updateButtons();
@@ -30,19 +32,16 @@ window.onload = function() {    // event listeners
 
     $('#btn-clear').on('click', clearBTNs);     // clear buttons button
 
-    $('#btn-fave').on('click', function() {     // favorites button
-
+    $('#btn-fave').mouseup(function() {     // favorites button
         clearGIFs();
-        faveBox.empty();
+        //faveBox.empty();
         faveBox.css('display', 'block');
 
-        for (var i = 0; i < favorites.length; i++) {
-            var faveDiv = $('<div>');
+        for (var x = 1; x <= localStorage.getItem('faveLength'); x++) {
             var faveImg = $('<img>');
-            faveImg.attr('src', favorites[i]);
             faveImg.addClass('gif-holder');
-            faveDiv.append(faveImg);
-            faveBox.prepend(faveDiv);
+            faveImg.attr('src', localStorage.getItem('faveGif' + x));
+            faveBox.append(faveImg);
         }
     });
 }
@@ -76,12 +75,7 @@ function displayGIF() {         // display gif function, includes ajax call
         
         console.log(response);
 
-        // i dont know
-        var randomIt = Math.floor(Math.random() * defineLimit);
-        console.log(randomIt);
-        // trying to randomize the array in the response
-
-        for (var i = 0; i < defineLimit(); i++) {       // displays the gif on the page
+        for (var i = 0; i < limit; i++) {       // displays the gif on the page
 
             var newDiv = $('<div>');
             newDiv.addClass('gif-holder');
@@ -103,7 +97,7 @@ function defineLimit() {        // defines the limit, defaults at 10
     var limitCount = $('#limit-input').val();
 
     if (limitCount === '') {
-        limit = 10;
+        limit = 3;
         return limit;
 
     } else if (limitCount >= 1) {
@@ -114,6 +108,7 @@ function defineLimit() {        // defines the limit, defaults at 10
 
 function addFavorite() {        // function adds a selected gif to the favorites section
     var newFave = $(this).attr('src');
+    localIndex++;
 
     if (favorites.includes(newFave)) {
         return; 
@@ -121,7 +116,10 @@ function addFavorite() {        // function adds a selected gif to the favorites
         favorites.push(newFave);
     }
 
-    localStorage.setItem('fave-gif', this);
+    // stores image urls in local storage
+    localStorage.setItem('faveLength', localIndex);
+    localStorage.setItem('faveGif' + localIndex, newFave);
+
 }
 
 function clearGIFs() {      // clears the gifbox, called on the clear gifs button

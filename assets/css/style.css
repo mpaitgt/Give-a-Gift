@@ -24,7 +24,6 @@ body {
 }
 
 #head span {
-    
     font-size: 50px;
     font-weight: bold;
     font-style: italic;
@@ -34,10 +33,20 @@ body {
     font-family: 'Rock Salt', cursive;
 }
 
+#instruct span {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: #db3434;
+    position: relative; 
+    left: -5px;
+    font-family: 'Rock Salt', cursive;
+}
+
 div span em {
     margin: 0px 10px;
+    font-weight: bold;
     color: #7bb3fd;
-
 }
 
 .custom-bg {
@@ -52,7 +61,7 @@ div span em {
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar {   /* allows me to hide the scrollbar on the main menu */
     display: none;
 }
 
@@ -82,6 +91,7 @@ input[type=number]::-webkit-inner-spin-button {
     box-shadow: 0px 10px 48px -24px #28a745bf;
     position: relative;
     cursor: pointer;
+    border: 1px outset rgb(40, 167, 69, 0.5);
 }
 
 .gif-holder p {
@@ -113,7 +123,18 @@ input[type=number]::-webkit-inner-spin-button {
     align-items: center;
     margin: 0px 20px;
     text-transform: uppercase;
-    
+}
+
+.selected-animation {
+    animation-name: clicked;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes clicked {
+    0% {box-shadow: 0px 0px 35px 17px rgba(0,0,0,0)};
+    50% {box-shadow: 0px 0px 35px 50px rgb(255, 255, 255)};
+    100% {box-shadow: 0px 0px 35px 17px rgba(0,0,0,0)};
 }
 
 #limit-input {
@@ -140,15 +161,22 @@ button:focus:active, input:focus, input:active {
     margin: 5px;
 }
 
+.favorite-button {
+    font-family: 'Vollkorn', serif;
+    background-color: rgba(21, 143, 10, 0.75);
+    border: none;
+    font-size: 32px;
+    padding: 5px 0px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#fave-clear {
+    display: none;
+}
+
 @media screen and (max-width: 991px) {
     .custom-bg {
         position: static;
     }
-}
-
-.favorite-button {
-    font-size: 40px;
-    padding: 5px 0px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
 }
