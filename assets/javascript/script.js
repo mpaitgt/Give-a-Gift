@@ -1,7 +1,7 @@
 var btnBox = $('#btn-box');
 var gifBox = $('#gif-box');
 var faveBox = $('#fave-box');
-var topics = ['arrested development', 'the office', 'lost', 'the wire', 'the good place', 'twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
+var topics = ['twin peaks', 'the leftovers', 'parks and recreation', 'game of thrones'];
 var search = $('#search-btn');
 var clear = $('#clear-btn');
 var faveClear = $('#fave-clear');
@@ -25,7 +25,10 @@ window.onload = function() {    // event listeners
         }   
     });
 
-    $(document).on('click', '.gif-image', addFavorite);    // gif button which adds to favorites list
+    $(document).on('click', '.gif-image', addFavorite);     // gif button which adds to favorites list
+    $(document).on('click', '.gif-image', function() {
+        $(this).addClass('selected-animation');
+    });
 
     faveClear.on('click', clearFavorites);
 
