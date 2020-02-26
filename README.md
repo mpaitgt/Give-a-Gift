@@ -5,7 +5,7 @@ Give a Gift is a web application which uses the Giphy API to generate GIFs on re
 
 
 ## Link to the live game
-[Check out GIVE A GIF(T) here!](https://mpaitgt.github.io/Giphy-API/)
+[Check out GIVE A GIF(T) here!](https://mpaitgt.github.io/Give-a-Gift/)
 ![](GIF-final1.gif)
 
 ## Details & Logic
